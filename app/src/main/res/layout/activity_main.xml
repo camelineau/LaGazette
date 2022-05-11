@@ -11,22 +11,26 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Actualité"
-        tools:layout_editor_absoluteX="281dp"
-        tools:layout_editor_absoluteY="398dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btnProfil"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Profil"
-        tools:layout_editor_absoluteX="143dp"
-        tools:layout_editor_absoluteY="397dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnActu"
+        app:layout_constraintStart_toEndOf="@+id/btnArticle"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btnArticle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Article"
-        tools:layout_editor_absoluteX="19dp"
-        tools:layout_editor_absoluteY="400dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
