@@ -4,6 +4,9 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import java.util.*
+
+Date today= "01-01-9999"
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,6 +27,14 @@ class MainActivity : AppCompatActivity() {
         btnProfilClick.setOnClickListener{
             val intent = Intent(this, Profil::class.java)
             startActivity(intent)
+
         }
+        today = Date()
+
+        curl https://newsapi.org/v2/everything -G \
+        -d from=today \
+        -d country=fr \
+        -d sortBy=popularity \
+        -d apiKey=API_KEY
     }
 }
