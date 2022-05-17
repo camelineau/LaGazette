@@ -1,14 +1,17 @@
 package com.example.lagazette
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
+import android.os.Build
 import android.os.Bundle
 import android.widget.Button
+import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AppCompatActivity
+import java.time.*
 import java.util.*
 
-Date today= "01-01-9999"
 
 class MainActivity : AppCompatActivity() {
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -29,7 +32,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
 
         }
-        today = Date()
+        LocalDate today = LocalDate.now()
 
         curl https://newsapi.org/v2/everything -G \
         -d from=today \
