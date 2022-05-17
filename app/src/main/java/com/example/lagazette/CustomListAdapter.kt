@@ -2,7 +2,6 @@ package com.example.lagazette
 
 import android.content.Context
 import android.util.Log
-import com.example.lagazette.Country
 import android.widget.BaseAdapter
 import android.view.LayoutInflater
 import android.view.View
@@ -26,6 +25,7 @@ class CustomListAdapter(private val context: Context, private val listData: List
         return position.toLong()
     }
 
+    //A corriger pour qu'il ne soit pas null --> n'accepte pas le return si convertView : View?
     override fun getView(position: Int, convertView: View, parent: ViewGroup): View {
         var convertView = convertView
         val holder: ViewHolder

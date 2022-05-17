@@ -3,11 +3,7 @@ package com.example.lagazette
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import com.example.lagazette.R
-import com.example.lagazette.Country
-import com.example.lagazette.CustomListAdapter
 import android.widget.AdapterView.OnItemClickListener
-import android.widget.AdapterView
 import android.widget.ListView
 import android.widget.Toast
 import java.util.ArrayList
@@ -21,12 +17,12 @@ class ListeActu : AppCompatActivity() {
         val listView = findViewById<View>(R.id.listActu) as ListView
         listView.adapter = CustomListAdapter(this, image_details)
 
-        // When the user clicks on the ListItem
-        listView.onItemClickListener = OnItemClickListener { a, v, position, id ->
+        // Test pour avoir l'erreur lors du lancement
+        /*listView.onItemClickListener = OnItemClickListener { a, v, position, id ->
             val o = listView.getItemAtPosition(position)
             val country = o as Country
             Toast.makeText(this@ListeActu, "Selected : $country", Toast.LENGTH_LONG).show()
-        }
+        }*/
     }
 
     private val listData: List<Country>
