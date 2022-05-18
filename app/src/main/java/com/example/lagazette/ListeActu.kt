@@ -1,5 +1,6 @@
 package com.example.lagazette
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -17,12 +18,13 @@ class ListeActu : AppCompatActivity() {
         val listView = findViewById<View>(R.id.listActu) as ListView
         listView.adapter = CustomListAdapter(this, image_details)
 
-        // Test pour avoir l'erreur lors du lancement
-        /*listView.onItemClickListener = OnItemClickListener { a, v, position, id ->
-            val o = listView.getItemAtPosition(position)
+        listView.onItemClickListener = OnItemClickListener { a, v, position, id ->
+            /*val o = listView.getItemAtPosition(position)
             val country = o as Country
-            Toast.makeText(this@ListeActu, "Selected : $country", Toast.LENGTH_LONG).show()
-        }*/
+            Toast.makeText(this@ListeActu, "Selected : $country", Toast.LENGTH_LONG).show()*/
+            val intent = Intent(this, DetailArticle::class.java)
+            startActivity(intent)
+        }
     }
 
     private val listData: List<Country>

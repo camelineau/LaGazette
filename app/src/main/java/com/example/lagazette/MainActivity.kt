@@ -32,12 +32,12 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
 
         }
-        LocalDate today = LocalDate.now()
+        /*LocalDate today = LocalDate.now()
 
         curl https://newsapi.org/v2/everything -G \
         -d from=today \
         -d country=fr \
         -d sortBy=popularity \
-        -d apiKey=API_KEY
+        -d apiKey=API_KEY*/
     }
 }

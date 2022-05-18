@@ -26,7 +26,7 @@ class CustomListAdapter(private val context: Context, private val listData: List
     }
 
     //A corriger pour qu'il ne soit pas null --> n'accepte pas le return si convertView : View?
-    override fun getView(position: Int, convertView: View, parent: ViewGroup): View {
+    override fun getView(position: Int, convertView: View?, parent: ViewGroup): View? {
         var convertView = convertView
         val holder: ViewHolder
         if (convertView == null) {
