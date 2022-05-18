@@ -7,6 +7,7 @@ import android.widget.Button
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import java.time.*
+import java.time.format.DateTimeFormatter
 import java.util.*
 
 
@@ -32,12 +33,13 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
 
         }
-        /*LocalDate today = LocalDate.now()
+        val today = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"))
+        println(today)
 
-        curl https://newsapi.org/v2/everything -G \
-        -d from=today \
-        -d country=fr \
-        -d sortBy=popularity \
-        -d apiKey=API_KEY*/
+        var url = "https://newsapi.org/v2/everything?" +
+                "from=today&" +
+                "country=fr" +
+                "sortBy=popularity&" +
+                "apiKey=API_KEY";
     }
 }
