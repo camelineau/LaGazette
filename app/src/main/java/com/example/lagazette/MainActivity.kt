@@ -8,7 +8,6 @@ import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import java.time.*
 import java.time.format.DateTimeFormatter
-import java.util.*
 
 
 class MainActivity : AppCompatActivity() {
@@ -19,7 +18,7 @@ class MainActivity : AppCompatActivity() {
 
         val btnActuClick = findViewById<Button>(R.id.btnActu)
         btnActuClick.setOnClickListener{
-            val intent = Intent(this, ListeActu::class.java)
+            val intent = Intent(this, ListActu::class.java)
             startActivity(intent)
         }
         val btnDetailClick = findViewById<Button>(R.id.btnArticle)

@@ -1,4 +1,4 @@
-package com.example.lagazette
+package com.example.lagazette.Models
 
 class Country(
     var countryName: String, // Image name (Without extension)
