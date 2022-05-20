@@ -1,6 +1,8 @@
 package com.example.lagazette.Models
 
-class Source {
+import java.io.Serializable
+
+class Source : Serializable {
     var id = ""
     var name = ""
 }

@@ -1,6 +1,8 @@
 package com.example.lagazette.Models
 
-class NewsHeadlines {
+import java.io.Serializable
+
+class NewsHeadlines : Serializable {
     var source: Source? = null
     var author = ""
     var title = ""

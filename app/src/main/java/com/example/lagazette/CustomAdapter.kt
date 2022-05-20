@@ -9,8 +9,9 @@ import android.view.LayoutInflater
 import com.example.lagazette.R
 import com.squareup.picasso.Picasso
 
-class CustomAdapter(private val context: Context, private val headlines: List<NewsHeadlines>) :
+class CustomAdapter(private val context: Context, private val headlines: List<NewsHeadlines>, private val listener: SelectListener) :
     RecyclerView.Adapter<CustomerViewHolder>() {
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CustomerViewHolder {
         return CustomerViewHolder(
             LayoutInflater.from(context).inflate(R.layout.headline_list_items, parent, false)
@@ -22,6 +23,11 @@ class CustomAdapter(private val context: Context, private val headlines: List<Ne
         holder.text_source.text = headlines[position].source!!.name
         if (headlines[position].urlToImage != null) {
             Picasso.get().load(headlines[position].urlToImage).into(holder.img_headline)
+        }
+        holder.cardView.setOnClickListener {
+            listener.OnNewsClicked(
+                headlines[position]
+            )
         }
     }
 
