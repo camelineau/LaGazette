@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/ic_list_article"
+        android:icon="@drawable/ic_list_article"
+        android:title="Actualité">
+
+    </item>
+
+    <item
+        android:id="@+id/ic_accueil"
+        android:icon="@drawable/ic_accueil"
+        android:title="Accueil">
+
+    </item>
+
+    <item
+        android:id="@+id/ic_profil"
+        android:icon="@drawable/ic_profil"
+        android:title="Profil">
+
+    </item>
+
+
+</menu>

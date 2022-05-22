@@ -14,6 +14,7 @@ import android.view.View
 import android.widget.Button
 import androidx.appcompat.widget.SearchView
 import com.example.lagazette.DetailArticle
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class ListActu : AppCompatActivity(), SelectListener, View.OnClickListener {
     lateinit var recyclerView: RecyclerView
@@ -27,6 +28,8 @@ class ListActu : AppCompatActivity(), SelectListener, View.OnClickListener {
     lateinit var b6: Button
     lateinit var b7: Button
     lateinit var searchView: SearchView
+    lateinit var bottomNavigationView: BottomNavigationView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_liste_actu)
@@ -63,6 +66,28 @@ class ListActu : AppCompatActivity(), SelectListener, View.OnClickListener {
         b7.setOnClickListener(this)
         val manager = RequestManager(this)
         manager.getNewsHeadlines(listener, "general", null)
+
+        bottomNavigationView = findViewById(R.id.bottom_navigation)
+        bottomNavigationView.setSelectedItemId(R.id.ic_accueil)
+        bottomNavigationView.setOnNavigationItemSelectedListener(BottomNavigationView.OnNavigationItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.ic_accueil -> {
+                    startActivity(Intent(applicationContext, MainActivity::class.java))
+                    overridePendingTransition(0,0);
+                    return@OnNavigationItemSelectedListener true
+                };
+
+                R.id.ic_list_article -> {
+                    return@OnNavigationItemSelectedListener true
+                }
+                R.id.ic_profil -> {
+                    startActivity(Intent(applicationContext, Profil::class.java))
+                    overridePendingTransition(0, 0)
+                    return@OnNavigationItemSelectedListener true
+                }
+            }
+            false
+        })
     }
 
     private val listener: OnFetchDataListener<NewsApiResponse?> =
