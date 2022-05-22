@@ -4,8 +4,6 @@ import android.content.Context
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import com.example.lagazette.OnFetchDataListener
-import com.example.lagazette.Models.RequestManager.CallNewsApi
-import com.example.lagazette.Models.NewsApiResponse
 import com.example.lagazette.R
 import android.widget.Toast
 import retrofit2.Call
@@ -31,9 +29,9 @@ class RequestManager(var context: Context) {
                     call: Call<NewsApiResponse>,
                     response: Response<NewsApiResponse>
                 ) {
-                    if (response.isSuccessful) {
+                    /*if (response.isSuccessful) {
                         Toast.makeText(context, "Error !!", Toast.LENGTH_SHORT).show()
-                    }
+                    }*/
                     listener.onFetchData(response.body()!!.articles, response.message())
                 }
 

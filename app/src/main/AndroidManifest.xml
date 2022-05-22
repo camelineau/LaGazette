@@ -16,9 +16,6 @@
         android:theme="@style/Theme.LaGazette"
         tools:targetApi="31">
         <activity
-            android:name=".DetailArticleJava"
-            android:exported="false" />
-        <activity
             android:name=".DetailArticle"
             android:exported="false" />
         <activity

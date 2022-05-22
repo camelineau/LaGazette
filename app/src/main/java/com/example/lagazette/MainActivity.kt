@@ -17,13 +17,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val btnActuClick = findViewById<Button>(R.id.btnActu)
-        btnActuClick.setOnClickListener{
+        btnActuClick.setOnClickListener {
             val intent = Intent(this, ListActu::class.java)
-            startActivity(intent)
-        }
-        val btnDetailClick = findViewById<Button>(R.id.btnArticle)
-        btnDetailClick.setOnClickListener{
-            val intent = Intent(this, DetailArticle::class.java)
             startActivity(intent)
         }
         val btnProfilClick = findViewById<Button>(R.id.btnProfil)

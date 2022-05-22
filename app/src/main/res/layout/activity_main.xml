@@ -22,15 +22,6 @@
         android:text="Profil"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btnActu"
-        app:layout_constraintStart_toEndOf="@+id/btnArticle"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/btnArticle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Article"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
