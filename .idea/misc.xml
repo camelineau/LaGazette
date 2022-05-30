@@ -3,7 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/antony.tahar/LaGazette/app/src/main/res/layout/activity_detail_article.xml" value="0.33" />
+        <entry key="..\:/Users/antony.tahar/LaGazette/app/src/main/res/layout/activity_liste_actu.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/antony.tahar/LaGazette/app/src/main/res/layout/activity_main.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/antony.tahar/LaGazette/app/src/main/res/layout/activity_profil.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/antony.tahar/LaGazette/app/src/main/res/layout/headline_list_items.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/clemence.amelineau/AndroidStudioProjects/LaGazette/app/src/main/res/layout/activity_detail_article.xml" value="0.264" />
         <entry key="..\:/Users/clemence.amelineau/AndroidStudioProjects/LaGazette/app/src/main/res/layout/activity_detail_article_java.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/clemence.amelineau/AndroidStudioProjects/LaGazette/app/src/main/res/layout/activity_liste_actu.xml" value="0.264" />

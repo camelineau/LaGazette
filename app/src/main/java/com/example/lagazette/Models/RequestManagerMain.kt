@@ -13,16 +13,17 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 import java.lang.Exception
 
-class RequestManager(var context: Context) {
+class RequestManagerMain(var context: Context) {
     var retrofit = Retrofit.Builder()
         .baseUrl("https://newsapi.org/v2/")
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 
-    fun getNewsHeadlines(listener: OnFetchDataListener<*>, category: String?, query: String?) {
+    fun getNewsHeadlines(listener: OnFetchDataListener<*>, sortBy: String?, query: String?) {
         val callNewsApi = retrofit.create(CallNewsApi::class.java)
         val call =
-            callNewsApi.callHeadlines("fr", category, query, context.getString(R.string.api_key))
+            callNewsApi.callHeadlines("fr", sortBy, query, context.getString(R.string.api_key))
+        //val callMain = callNewsApi.callMainHeadlines("fr", "popularity", query, context.getString(R.string.api_key))
         try {
             call.enqueue(object : Callback<NewsApiResponse> {
                 override fun onResponse(
@@ -48,7 +49,7 @@ class RequestManager(var context: Context) {
         @GET("top-headlines")
         fun callHeadlines(
             @Query("country") country: String?,
-            @Query("category") category: String?,
+            @Query("sortBy") sortBy: String?,
             @Query("q") query: String?,
             @Query("apiKey") api_key: String?
         ): Call<NewsApiResponse>

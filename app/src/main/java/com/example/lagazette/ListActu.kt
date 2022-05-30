@@ -13,7 +13,6 @@ import android.content.Intent
 import android.view.View
 import android.widget.Button
 import androidx.appcompat.widget.SearchView
-import com.example.lagazette.DetailArticle
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class ListActu : AppCompatActivity(), SelectListener, View.OnClickListener {
