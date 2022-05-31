@@ -1,5 +1,6 @@
 package com.example.lagazette
 
+import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Build
@@ -41,9 +42,10 @@ class MainActivity : AppCompatActivity(), SelectListener {
 
          */
         // https://newsapi.org/v2/everything?country=fr&sortBy=popularity&apiKey=dcbd5c2ade994e0989e5f655b22fdc04
-
+        val sharedPreferences=getSharedPreferences("sharedPrefs", Context.MODE_PRIVATE)
+        val savedString= sharedPreferences.getString("STRING_KEY",null)
         val manager = RequestManagerMain(this)
-        manager.getNewsHeadlines(listener, "popularity", "terre")
+        manager.getNewsHeadlines(listener, "popularity", savedString )
 
         bottomNavigationView = findViewById(R.id.bottom_navigation)
         bottomNavigationView.setSelectedItemId(R.id.ic_accueil)
