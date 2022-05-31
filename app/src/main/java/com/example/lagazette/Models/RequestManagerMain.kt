@@ -19,11 +19,11 @@ class RequestManagerMain(var context: Context) {
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 
-    fun getNewsHeadlines(listener: OnFetchDataListener<*>, sortBy: String?, query: String?) {
+    fun getNewsHeadlines(listener: OnFetchDataListener<*>, country: String?, sortBy: String?, query: String?, PageSize: Int?) {
         val callNewsApi = retrofit.create(CallNewsApi::class.java)
         val call =
-            callNewsApi.callHeadlines("fr", sortBy, query, context.getString(R.string.api_key))
-        //val callMain = callNewsApi.callMainHeadlines("fr", "popularity", query, context.getString(R.string.api_key))
+            callNewsApi.callHeadlines(country, sortBy, query, PageSize, context.getString(R.string.api_key))
+        //val callMain = callNewsApi.callMainHeadlines("fr", "popularity", "purée", 4, context.getString(R.string.api_key))
         try {
             call.enqueue(object : Callback<NewsApiResponse> {
                 override fun onResponse(
@@ -51,6 +51,7 @@ class RequestManagerMain(var context: Context) {
             @Query("country") country: String?,
             @Query("sortBy") sortBy: String?,
             @Query("q") query: String?,
+            @Query("PageSize") PageSize: Int?,
             @Query("apiKey") api_key: String?
         ): Call<NewsApiResponse>
 

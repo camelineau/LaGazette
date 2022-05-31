@@ -16,6 +16,7 @@ class Profil : AppCompatActivity() {
     lateinit var spinner : Spinner
     lateinit var txt_lang : TextView
     val lang = arrayOf("ar", "de", "en", "es", "fr", "he", "it", "nl", "no", "pt", "ru", "sv", "ud", "zh")
+    lateinit var chosenLang: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,6 +25,7 @@ class Profil : AppCompatActivity() {
         myButton = findViewById(R.id.bt_button)
         myTextView = findViewById(R.id.tv_text)
         myEditText = findViewById(R.id.et_text)
+        txt_lang = findViewById(R.id.txt_lang_choice)
 
         loadData()
 
@@ -41,7 +43,8 @@ class Profil : AppCompatActivity() {
                 position: Int,
                 id: Long
             ) {
-                Toast.makeText(this@Profil, lang[position], Toast.LENGTH_LONG)
+                chosenLang=lang[position]
+                Toast.makeText(this@Profil, chosenLang, Toast.LENGTH_LONG)
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -78,19 +81,29 @@ class Profil : AppCompatActivity() {
         val insertedText=myEditText.text.toString()
         myTextView.text = insertedText
 
+        val insertedLang=chosenLang
+        txt_lang.text=insertedLang
 
         val sharedPreferences=getSharedPreferences("sharedPrefs", Context.MODE_PRIVATE)
         val editor=sharedPreferences.edit()
         editor.apply{
             putString("STRING_KEY", insertedText)
         }.apply()
+        editor.apply{
+            putString("LANG_KEY", insertedLang)
+        }.apply()
+
         Toast.makeText(this,"Sauvegarde réussie",Toast.LENGTH_SHORT).show()
     }
 
     private fun loadData(){
         val sharedPreferences=getSharedPreferences("sharedPrefs", Context.MODE_PRIVATE)
-        val savedString= sharedPreferences.getString("STRING_KEY",null)
 
+        val savedString= sharedPreferences.getString("STRING_KEY",null)
         myTextView.text=savedString
+
+        val savedLang= sharedPreferences.getString("LANG_KEY",null)
+        txt_lang.text=savedLang
     }
+
 }
