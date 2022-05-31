@@ -4,10 +4,8 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
-import android.widget.Toast
+import android.view.View
+import android.widget.*
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class Profil : AppCompatActivity() {
@@ -15,6 +13,10 @@ class Profil : AppCompatActivity() {
     lateinit var myButton: Button
     lateinit var myTextView: TextView
     lateinit var myEditText: EditText
+    lateinit var spinner : Spinner
+    lateinit var txt_lang : TextView
+    val lang = arrayOf("ar", "de", "en", "es", "fr", "he", "it", "nl", "no", "pt", "ru", "sv", "ud", "zh")
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profil)
@@ -29,6 +31,24 @@ class Profil : AppCompatActivity() {
             saveData()
         }
 
+        spinner = findViewById(R.id.spin_lang)
+        val arrayAdapter = ArrayAdapter(this@Profil, android.R.layout.simple_spinner_dropdown_item, lang)
+        spinner.adapter = arrayAdapter
+        spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+            override fun onItemSelected(
+                parent: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
+                Toast.makeText(this@Profil, lang[position], Toast.LENGTH_LONG)
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+                TODO("Not yet implemented")
+            }
+
+        }
 
         bottomNavigationView = findViewById(R.id.bottom_navigation)
         bottomNavigationView.selectedItemId = R.id.ic_accueil
@@ -57,6 +77,7 @@ class Profil : AppCompatActivity() {
     private fun saveData(){
         val insertedText=myEditText.text.toString()
         myTextView.text = insertedText
+
 
         val sharedPreferences=getSharedPreferences("sharedPrefs", Context.MODE_PRIVATE)
         val editor=sharedPreferences.edit()
